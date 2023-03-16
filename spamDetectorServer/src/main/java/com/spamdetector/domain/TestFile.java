@@ -1,6 +1,5 @@
 package com.spamdetector.domain;
 
-import java.text.DecimalFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -20,6 +19,7 @@ public class TestFile {
      */
     @JsonProperty("spamProbability")
     private double spamProbability;
+
     /**
      * the real class/category of the file; related to the folder it was loaded from 'spam' or 'ham'
      */
@@ -36,11 +36,11 @@ public class TestFile {
      * @return the name of the file
      */
     public String getFilename() { return this.filename; }
+
     /**
      * @return the probability of this file being 'spam'
      */
     public double getSpamProbability() { return this.spamProbability; }
-
 
     /**
      * @return the actual/real class of the file
@@ -48,6 +48,8 @@ public class TestFile {
     public String getActualClass() { return this.actualClass; }
 
     public void setFilename(String value) { this.filename = value; }
+
     public void setSpamProbability(double value) { this.spamProbability = value; }
+
     public void setActualClass(String value) { this.actualClass = value; }
 }
