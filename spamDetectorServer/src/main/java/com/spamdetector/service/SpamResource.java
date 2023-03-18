@@ -102,7 +102,7 @@ public class SpamResource {
         int numTrueNegatives = 0;
 
         for (TestFile testFile : testFiles) {
-            if (testFile.getActualClass().equals("spam")) {
+            if (testFile.getActualClass().equals("Spam")) {
                 if (testFile.getSpamProbability() >= 0.5) {
                     numTruePositives++;
                 }
@@ -123,7 +123,7 @@ public class SpamResource {
         int numFalsePositives = 0;
 
         for (TestFile testFile : testFiles) {
-            if (testFile.getActualClass().equals("spam")) {
+            if (testFile.getActualClass().equals("Spam")) {
                 if (testFile.getSpamProbability() >= 0.5) {
                     numTruePositives++;
                 }

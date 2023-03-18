@@ -126,20 +126,17 @@ public class SpamDetector {
     private void calculateProbabilities() {
         for (String word : trainSpamFreq.keySet()) {
             double probability = (double) (trainSpamFreq.get(word) + 1) / (numTrainSpamFiles + 2);
-            System.out.println("Pr(W|S): " + probability);
             spamWordProb.put(word, probability);
         }
 
         for (String word : trainHamFreq.keySet()) {
             double probability = (double) (trainHamFreq.get(word) + 1) / (numTrainHamFiles + 2);
-            System.out.println("Pr(W|H): " + probability);
             hamWordProb.put(word, probability);
         }
 
         for (String word : spamWordProb.keySet()) {
             double probability =
                     spamWordProb.get(word) / (spamWordProb.get(word) + hamWordProb.getOrDefault(word, 0.0));
-            System.out.println("Pr(S|W): " + probability);
             spamFileProb.put(word, probability);
         }
     }
@@ -157,21 +154,20 @@ public class SpamDetector {
                 BufferedReader reader = new BufferedReader(new FileReader(file));
                 String line;
                 double n = 0.0;
+                Set<String> words = new HashSet<>();
                 while ((line = reader.readLine()) != null) {
-                    Set<String> words = new HashSet<>(Arrays.asList(line.split("\\W+")));
-                    for (String word : words) {
-                        word = word.toLowerCase();
-                        if (spamFileProb.containsKey(word)) {
-                            n += Math.log(1 - spamFileProb.get(word)) - Math.log(spamFileProb.get(word));
-                        }
+                    words.addAll(Arrays.asList(line.split("\\W+")));
+                }
+                for (String word : words) {
+                    word = word.toLowerCase();
+                    if (spamFileProb.containsKey(word)) {
+                        n += Math.log(1 - spamFileProb.get(word)) - Math.log(spamFileProb.get(word));
                     }
                 }
                 reader.close();
 
                 double spamProbability = 1.0 / (1.0 + Math.exp(n));
-                System.out.println("n: " + n);
-                System.out.println("Pr(S|F): " + spamProbability);
-                testResults.add(new TestFile(file.getName(), spamProbability, "ham"));
+                testResults.add(new TestFile(file.getName(), spamProbability, "Ham"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -184,21 +180,20 @@ public class SpamDetector {
                 BufferedReader reader = new BufferedReader(new FileReader(file));
                 String line;
                 double n = 0.0;
+                Set<String> words = new HashSet<>();
                 while ((line = reader.readLine()) != null) {
-                    Set<String> words = new HashSet<>(Arrays.asList(line.split("\\W+")));
-                    for (String word : words) {
-                        word = word.toLowerCase();
-                        if (spamFileProb.containsKey(word)) {
-                            n += Math.log(1 - spamFileProb.get(word)) - Math.log(spamFileProb.get(word));
-                        }
+                    words.addAll(Arrays.asList(line.split("\\W+")));
+                }
+                for (String word : words) {
+                    word = word.toLowerCase();
+                    if (spamFileProb.containsKey(word)) {
+                        n += Math.log(1 - spamFileProb.get(word)) - Math.log(spamFileProb.get(word));
                     }
                 }
                 reader.close();
 
                 double spamProbability = 1.0 / (1.0 + Math.exp(n));
-                System.out.println("n: " + n);
-                System.out.println("Pr(S|F): " + spamProbability);
-                testResults.add(new TestFile(file.getName(), spamProbability, "spam"));
+                testResults.add(new TestFile(file.getName(), spamProbability, "Spam"));
             } catch (IOException e) {
                 e.printStackTrace();
             }

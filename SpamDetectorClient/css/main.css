@@ -80,6 +80,143 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.document {
+  font-family: Arial, sans-serif;
+}
+
+.fixed-header, .fixed-footer {
+  background: #003c72;
+}
+
+.fixed-header {
+  top: 0;
+  padding: 10px;
+  color: #ea653c;
+}
+
+.fixed-footer {
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  padding: 5px;
+  color: white;
+  font-size: small;
+}
+
+.container {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  float: left;
+  padding: 0 30px 15px 0;
+}
+
+.left {
+  width: 20%;
+}
+
+.right {
+  float: right;
+  width: 20%;
+  padding-top: 100px;
+}
+
+.middle {
+  width: 60%;
+  padding: 10px 0 0 15px;
+  overflow-y: auto;
+  height: 600px;
+}
+
+ul.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 30px 0 0 20px;
+  width: 20%;
+  position: fixed;
+  background-color: #f9a487;
+  height: 100%;
+  overflow: auto;
+}
+
+li a {
+  display: block;
+  color: #234874;
+  padding: 0 0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+li a.active {
+  background-color: #ffffff;
+  color: #2d6891;
+}
+
+li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+h2 {
+  color: #4d4d4d;
+}
+
+p .column-middle {
+  color: #4d4d4d;
+  font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+tr {
+  background-color: #f9fafb;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+th {
+  background-color: #54585d;
+  color: white;
+  font-weight: bold;
+  border: 1px solid #54585d;
+}
+
+td {
+  padding: 15px;
+  color: #7f7976;
+  border: 1px solid #dddfe1;
+}
+
+h3 {
+  float: right;
+  color: #59515a;
+}
+
+.column-right {
+  float: right;
+  padding-right: 25px;
+}
+
+.column-right p {
+  margin: 0;
+}
+
+.column-right input {
+  margin-bottom: 15px;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Spam Detector - Dashboard</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,13 +22,54 @@
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body>
-
+<body class="document">
   <!-- Add your site or application content here -->
+  <div class="fixed-header">
+    <h1>Spam Detector Dashboard</h1>
+  </div>
 
+  <div class="row">
 
+    <div class="column left">
+      <ul class="navbar">
+        <li> <a class="active" href="index.html">Dashboard</a> </li>
+        <li> <a href="about.html">> About</a> </li>
+      </ul>
+    </div>
 
+    <div class="column middle">
+      <h2>Spam Analysis Dashboard</h2>
+      <p class="column-middle">The table below displays the results of our spam detection algorithm:</p>
+      <table id="chart">
+        <thead>
+          <tr>
+            <th class="tableHeader">File</th>
+            <th class="tableHeader">Spam Probability (%)</th>
+            <th class="tableHeader">Class</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
 
+    <div class="column right">
+      <h3>Performance of the model</h3>
+      <div class="column-right">
+        <p>Accuracy:</p>
+        <label for="accuracy"></label>
+        <input type="text" id="accuracy" name="accuracy" disabled>
+        <p>Precision:</p>
+        <label for="precision"></label>
+        <input type="text" id="precision" name="precision" disabled>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="fixed-footer">
+    <div class="container">copyright &copy; CSCI 2020U - Winter 2023</div>
+  </div>
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
